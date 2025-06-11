@@ -1,18 +1,22 @@
 from PIL import Image
 from colorama import Fore, Style, init
 
-# Inisialisasi colorama agar berfungsi di semua OS                                                                    init(autoreset=True)
+# Inisialisasi colorama agar berfungsi di semua OS
+init(autoreset=True)
 
 def pixel_ke_warna(pixel_value):
     """Mengembalikan warna berdasarkan tingkat kecerahan piksel."""
     if pixel_value > 230:
-        return Fore.WHITE                                                                                                 elif pixel_value > 200:
+        return Fore.WHITE
+    elif pixel_value > 200:
         return Fore.LIGHTWHITE_EX
     elif pixel_value > 170:
         return Fore.LIGHTCYAN_EX
     elif pixel_value > 140:
-        return Fore.CYAN                                                                                                  elif pixel_value > 110:
-        return Fore.LIGHTGREEN_EX                                                                                         elif pixel_value > 80:
+        return Fore.CYAN
+    elif pixel_value > 110:
+        return Fore.LIGHTGREEN_EX
+    elif pixel_value > 80:
         return Fore.GREEN
     elif pixel_value > 50:
         return Fore.MAGENTA
@@ -21,7 +25,8 @@ def pixel_ke_warna(pixel_value):
 
 def gambar_ke_ascii_detail(path_gambar, lebar_baru=100):
     """Mengubah gambar menjadi ASCII art berwarna menggunakan colorama."""
-    try:                                                                                                                      gambar = Image.open(path_gambar).convert('L')  # grayscale
+    try:
+        gambar = Image.open(path_gambar).convert('L')  # grayscale
     except FileNotFoundError:
         return "Error: File gambar tidak ditemukan."
 
